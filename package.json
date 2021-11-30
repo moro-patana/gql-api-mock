@@ -21,6 +21,7 @@
     "workerDirectory": "public"
   },
   "devDependencies": {
+    "@nuxtjs/tailwindcss": "^4.2.1",
     "@types/react": "^17.0.37",
     "autoprefixer": "^10.4.0",
     "postcss": "^8.4.4",
