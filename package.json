@@ -6,12 +6,24 @@
     "start": "next start"
   },
   "dependencies": {
+    "@apollo/client": "^3.5.5",
+    "@tailwindcss/forms": "^0.3.4",
+    "@tailwindcss/line-clamp": "^0.2.2",
+    "@videsk/tailwind-random-color": "^0.2.0-beta",
+    "eslint-config-prettier": "^8.3.0",
     "msw": "^0.29.0",
     "next": "latest",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "typescript": "^4.5.2"
   },
   "msw": {
     "workerDirectory": "public"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.37",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.4",
+    "tailwindcss": "^2.2.19"
   }
 }
