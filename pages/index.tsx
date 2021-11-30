@@ -79,9 +79,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {openModal && (
-        <CreateLaunch openModal={openModal} setOpenModal={setOpenModal} />
-      )}
+      {openModal && <CreateLaunch setOpenModal={setOpenModal} />}
     </div>
   )
 }
