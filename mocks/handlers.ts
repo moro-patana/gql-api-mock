@@ -1,7 +1,7 @@
 import { graphql } from 'msw'
 
 interface CreateLaunchesPastMutation {
-  createLaunchesPast: {
+  createLaunch: {
     mission_name: string
     launch_date_local: string
     launch_site: {
@@ -12,9 +12,7 @@ interface CreateLaunchesPastMutation {
 interface CreateLaunchesPastMutationVariables {
   mission_name: string
   launch_date_local: string
-  launch_site: {
-    site_name_long: string
-  }
+  site_name_long: string
 }
 
 export const handlers = [
@@ -43,11 +41,11 @@ export const handlers = [
   graphql.mutation<
     CreateLaunchesPastMutation,
     CreateLaunchesPastMutationVariables
-  >('CreateLaunchesPast', (req, res, ctx) => {
-    const { mission_name, launch_date_local, launch_site } = req.variables
+  >('CreateLaunch', (req, res, ctx) => {
+    const { mission_name, launch_date_local, site_name_long } = req.variables
     return res(
       ctx.data({
-        createLaunchesPast: {
+        createLaunch: {
           mission_name: 'Satellite',
           launch_date_local: '2021-10-24T11:31:00-04:00',
           launch_site: {
