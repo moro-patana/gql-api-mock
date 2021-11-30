@@ -1,46 +1,48 @@
 import React, { FormEvent, useState, Fragment } from 'react'
 import { useMutation, gql } from '@apollo/client'
+
 export const ADD_LAUNCH = gql`
-  mutation AddLaunch(
+  mutation CreateLaunch(
     $mission_name: String
     $launch_date_local: String
     $site_name_long: String
   ) {
-    addLaunch(
+    createLaunch(
       mission_name: $mission_name
       launch_date_local: $launch_date_local
-      site_name_long: $site_name_long
+      launch_site: { site_name_long: $site_name_long }
     ) {
       mission_name
       launch_date_local
-      site_name_long
+      launch_site {
+        site_name_long
+      }
     }
   }
 `
 
 const CreateLaunch = ({
-  openModal,
   setOpenModal,
 }: {
-  openModal: boolean
   setOpenModal: (openModal: boolean) => void
 }) => {
   const [formState, setFormState] = useState({
     mission_name: '',
     launch_date_local: '',
-    site_name_long: '',
+    launch_site: { site_name_long: '' },
   })
   const [createLaunchData] = useMutation(ADD_LAUNCH, {
     variables: {
       mission_name: formState.mission_name,
       launch_date_local: formState.launch_date_local,
-      site_name_long: formState.site_name_long,
+      launch_site: formState.launch_site.site_name_long,
     },
   })
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     createLaunchData()
     setOpenModal(false)
+    console.log(formState)
   }
   return (
     <div
@@ -97,17 +99,20 @@ const CreateLaunch = ({
                 required
                 className='p-0 text-sm border-none focus:ring-0 focus:bg-white'
                 type='text'
-                id=' site_name_long'
-                placeholder=' Site Name Long'
-                value={formState.site_name_long}
+                id='site long name'
+                placeholder='Site Long Name'
+                value={formState.launch_site.site_name_long}
                 onChange={(e) =>
                   setFormState({
                     ...formState,
-                    site_name_long: e.target.value,
+                    launch_site: {
+                      site_name_long: e.target.value,
+                    },
                   })
                 }
               />
             </div>
+
             <div className='flex flex-row justify-end gap-6 p-4'>
               <button
                 onClick={() => setOpenModal(false)}
