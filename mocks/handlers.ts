@@ -1,7 +1,7 @@
 import { graphql } from 'msw'
 
 interface CreateLaunchesPastMutation {
-  launchesPast: {
+  createLaunchesPast: {
     mission_name: string
     launch_date_local: string
     launch_site: {
@@ -47,7 +47,7 @@ export const handlers = [
     const { mission_name, launch_date_local, launch_site } = req.variables
     return res(
       ctx.data({
-        launchesPast: {
+        createLaunchesPast: {
           mission_name: 'Satellite',
           launch_date_local: '2021-10-24T11:31:00-04:00',
           launch_site: {
