@@ -23,24 +23,24 @@ const Home = () => {
   return (
     <div className='flex flex-col'>
       <div className='-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
-        <div className='py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8'>
-          <div className='shadow overflow-hidden border-b border-gray-200 sm:rounded-lg'>
+        <div className='inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8'>
+          <div className='overflow-hidden border-b border-gray-200 shadow sm:rounded-lg'>
             <table className='min-w-full divide-y divide-gray-200'>
-              <thead className='bg-red-600'>
+              <thead className='bg-gray-200'>
                 <tr>
                   <th
                     scope='col'
-                    className='px-6 py-3 bg-red-700 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+                    className='px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase'>
                     Mission Name
                   </th>
                   <th
                     scope='col'
-                    className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+                    className='px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase'>
                     Date
                   </th>
                   <th
                     scope='col'
-                    className='px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider'>
+                    className='px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase'>
                     Site Name
                   </th>
                 </tr>
@@ -51,13 +51,13 @@ const Home = () => {
                     <tr
                       key={index}
                       className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                      <td className='px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900'>
+                      <td className='px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap'>
                         {launch.mission_name}
                       </td>
-                      <td className='px-6 py-4 whitespace-nowrap text-sm text-gray-500'>
+                      <td className='px-6 py-4 text-sm text-gray-500 whitespace-nowrap'>
                         {new Date(launch.launch_date_local).toDateString()}
                       </td>
-                      <td className='px-6 py-4 whitespace-nowrap text-sm text-red-500'>
+                      <td className='px-6 py-4 text-sm text-gray-500 whitespace-nowrap'>
                         {launch.launch_site.site_name_long}
                       </td>
                     </tr>
